@@ -6,7 +6,7 @@
 /*   By: tlouekar <tlouekar@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 12:06:55 by tlouekar          #+#    #+#             */
-/*   Updated: 2020/01/07 12:54:39 by tlouekar         ###   ########.fr       */
+/*   Updated: 2020/01/07 13:42:04 by tlouekar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,28 @@ int		ft_isspace(char c)
 void	killspaces(char *str)
 {
 	int	len;
+	int	i;
 
+	i = 0;
 	len = ft_strlen(str);
-	while(len > 0)
+	while (ft_isspace(str[i]) == 1)
+		i++;
+	str += i;
+	while(i < len)
 	{
-		ft_putchar(*str);
-		len--;
-		str += len;
+		if (ft_isspace(*str) != 1 || ft_isspace(*(str - 1)) != 1)
+		{
+			ft_putchar(*str);
+		}
+		else {
+			while (ft_isspace(*(str + 1)) == 1)
+			{
+				str++;
+				i++;
+			}
+		}
+		str++;
+		i++;
 	}
 }
 
