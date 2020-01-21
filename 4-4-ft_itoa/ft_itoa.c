@@ -6,7 +6,7 @@
 /*   By: tlouekar <tlouekar@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 08:58:34 by tlouekar          #+#    #+#             */
-/*   Updated: 2020/01/21 09:48:50 by tlouekar         ###   ########.fr       */
+/*   Updated: 2020/01/21 10:00:35 by tlouekar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int			ft_strlen(char *str)
 	int		i;
 
 	i = 0;
-	printf("In strlen");
 	while (str[i] != '\0')
 		i++;
 	return (i);
@@ -30,11 +29,9 @@ char		*ft_strrev(char *str)
 	int		i;
 	int		len;
 
-	printf("In strrev.");
 	i = 0;
-	len = ft_strlen(str);
-	printf("%d", len);
-	while (str[i] != '\0')
+	len = ft_strlen(str) - 1;
+	while (i <= (len / 2))
 	{
 		temp = str[i];
 		str[i] = str[len - i];
@@ -52,9 +49,9 @@ char		*ft_itoa(int nbr)
 	int		i;
 	int		j;
 
-	printf("In itoa.");
 	neg = 0;
 	i = 0;
+	j = 0;
 	str = malloc(sizeof(char) * 12);
 	result = malloc(sizeof(char) * 12);
 	if (nbr == -2147483648)
@@ -62,21 +59,17 @@ char		*ft_itoa(int nbr)
 		result = "-2147483648";
 		return (result);
 	}
-	printf("In itoa.");
 	if (nbr < 0)
 	{
 		neg = 1;
 		nbr *= -1;
 	}
-	printf("In itoa.");
-	while (nbr > 9)
+	while (nbr > 0)
 	{
 		str[i] = (nbr % 10) + '0';
 		nbr = nbr / 10;
 		i++;
 	}
-	printf("In itoa.");
-	printf("%s", str);
 	str = ft_strrev(str);
 	if (neg == 1)
 	{
@@ -97,7 +90,6 @@ char		*ft_itoa(int nbr)
 
 int			main(void)
 {
-	printf("Starting");
-	ft_itoa(966);
+	ft_itoa(-96820);
 	return (0);
 }
