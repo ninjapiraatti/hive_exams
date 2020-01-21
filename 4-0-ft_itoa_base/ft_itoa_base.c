@@ -6,7 +6,7 @@
 /*   By: tlouekar <tlouekar@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 14:02:58 by exam              #+#    #+#             */
-/*   Updated: 2020/01/21 16:23:20 by tlouekar         ###   ########.fr       */
+/*   Updated: 2020/01/21 16:36:04 by tlouekar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char		*ft_itoa_base(int value, int base)
 {
 	int		i;
 	int		multi;
-	int		mvalue;
+	long	mvalue;
 	int		convert;
 	char	*str;
 
@@ -66,7 +66,7 @@ char		*ft_itoa_base(int value, int base)
 		str[1] = '\0';
 		return (str);
 	}
-	while (value >= mvalue)
+	while ((long)value >= mvalue)
 	{
 		mvalue *= base;
 		multi++;
@@ -85,5 +85,5 @@ char		*ft_itoa_base(int value, int base)
 
 int main (void)
 {
-	printf("%s",ft_itoa_base(21474832, 10));
+	printf("%s",ft_itoa_base(2145483223, 10));
 }
