@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
+/*   ft_itoa_base2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlouekar <tlouekar@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 14:02:58 by exam              #+#    #+#             */
-/*   Updated: 2020/01/27 10:18:03 by tlouekar         ###   ########.fr       */
+/*   Updated: 2020/01/27 10:49:05 by tlouekar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,7 @@ char		*ft_itoa_base(int value, int base)
 			value *= -1;
 	}
 	if (value == 0)
-	{
-		str[0] = '0';
-		str[1] = '\0';
-		return (str);
-	}
+		return (ft_strdup("0"));
 	while ((long)value >= mvalue)
 	{
 		mvalue *= base;
